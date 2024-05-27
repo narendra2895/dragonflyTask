@@ -4,8 +4,6 @@ Dragonfly Task is a web application that allows users to upload images, compress
 Folder Structure
 The project is organized into the following structure:
 
-
-Copy code
 dragonfly_task/
 ├── api/
 │   ├── node_modules/
@@ -123,8 +121,3 @@ Compression and Validation: The images are compressed and validated based on siz
 API Integration: The images are uploaded to the server, and their processing status can be tracked through API calls.
 
 
-Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
-
-License
-This project is licensed under the ISC License.
