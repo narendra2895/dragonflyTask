@@ -1,143 +1,130 @@
-# Dragonfly Task
+Overview
+Dragonfly Task is a web application that allows users to upload images, compress them, and track their processing status through an API. The application is built using React for the frontend and Express for the backend.
 
-# Project Structure
+Folder Structure
+The project is organized into the following structure:
 
-<!-- dragonfly_task/
+
+Copy code
+dragonfly_task/
+├── api/
+│   ├── node_modules/
+│   ├── package-lock.json
+│   ├── package.json
+│   └── server.js
 ├── node_modules/
 ├── public/
 ├── src/
-│ ├── components/
-│ │ ├── ImageUploader.css
-│ │ └── ImageUploader.jsx
-│ ├── App.css
-│ ├── App.js
-│ ├── App.test.js
-│ ├── index.css
-│ ├── index.js
-│ ├── logo-white.png
-│ ├── logo.svg
-│ ├── reportWebVitals.js
-│ └── setupTests.js
-├── api/
-│ ├── node_modules/
-│ ├── .env
-│ ├── package-lock.json
-│ ├── package.json
-│ └── server.js
+│   ├── components/
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo-white.png
+│   ├── logo.svg
+│   ├── reportWebVitals.js
+│   └── setupTests.js
 ├── .env
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
-└── README.md -->
+├── README.md
+└── webpack.config.js
 
 
-## Image Uploader Component
 
-The `ImageUploader` component allows users to upload image files with the following features:
-- Image compression before upload.
-- File size and resolution validation.
-- Supports drag-and-drop as well as file input selection.
-- Displays previews of selected images.
-- Uploads files to the server with a PUT request.
+Installation
+Prerequisites
+<!-- --------- -->
+Node.js
+npm
 
-### `ImageUploader.jsx`
 
-This file contains the React component for image uploading. It uses several libraries:
-- `axios` for HTTP requests.
-- `compressorjs` for image compression.
-- `react-toastify` for toast notifications.
-- `react-confirm-alert` for confirmation dialogs.
+Setup
+<!-- --------- -->
+Clone the repository:
+<!-- --------- -->
+git clone https://github.com/your-username/dragonfly_task.git
+cd dragonfly_task
+Install dependencies for the frontend:
+npm install
 
-### `ImageUploader.css`
+Navigate to the api directory and install backend dependencies:
+<!-- --------- -->
+cd api
+npm install
+cd ..
 
-This file contains the styling for the `ImageUploader` component.
 
-## Server
+Environment Variables
+Create a .env file in the root directory and add the following environment variables:
+<!-- --------- -->
+API_KEY=your_api_key
+BASE_URL=your_base_url
 
-The `server.js` file sets up an Express server with the following features:
-- CORS support.
-- Environment variable configuration using `dotenv`.
-- API endpoints to interact with a remote server for staging, processing, and checking the status of uploaded images.
 
-### `server.js`
 
-This file contains the server setup and three main endpoints:
-1. `/pipeline/assets/stage`: Stages assets in the pipeline.
-2. `/pipeline/assets/process`: Processes staged assets.
-3. `/pipeline/assets/status`: Checks the status of processed assets.
+Running the Application
+<!-- --------- -->
+npm start
+This will concurrently run both the frontend and the backend.
 
-## Installation
+Available Scripts
+In the project directory, you can run:
 
-To set up the project, follow these steps:
+Frontend Scripts
+<!-- --------- -->
 
-1. Clone the repository:
-    ```bash
-    git clone <repository_url>
-    cd dragonfly_task
-    ```
+npm start: Runs the app in the development mode.
+npm run build-client: Builds the app for production to the build folder.
+npm run test: Launches the test runner in the interactive watch mode.
+npm run eject: Removes the single build dependency from your project.
 
-2. Install dependencies in the root directory:
-    ```bash
-    npm install
-    ```
 
-3. Navigate to the `api` directory and install dependencies:
-    ```bash
-    cd api
-    npm install
-    ```
+Backend Scripts
+<!-- --------- -->
 
-4. Create a `.env` file in the root and add the necessary environment variables:
-    ```plaintext
-    API_KEY=your_api_key
-    BASE_URL=https://api.yourservice.com
-    ```
+cd api && node server.js: Starts the backend server.
 
-5. Start the development server:
-    ```bash
-    npm start
-    ```
 
-## Scripts
+Dependencies:
 
-The `package.json` file includes several scripts:
+Frontend
+<!-- --------- -->
+axios
+compressorjs
+concurrently
+dotenv
+react
+react-confirm-alert
+react-dom
+react-scripts
+react-toastify
+web-vitals
 
-- `start`: Concurrently starts the client and server.
-- `start-client`: Starts the React client.
-- `start-server`: Starts the Express server.
-- `build`: Builds the React application.
-- `test`: Runs the tests.
-- `eject`: Ejects the create-react-app configuration.
 
-## Dependencies
+Backend
+<!-- --------- -->
+aws-sdk
+axios
+cors
+dotenv
+express
+sharp
 
-The project has the following dependencies:
 
-### Frontend
 
-- `axios`: ^1.7.2
-- `compressorjs`: ^1.2.1
-- `dotenv`: ^16.4.5
-- `react`: ^18.3.1
-- `react-confirm-alert`: ^3.0.6
-- `react-dom`: ^18.3.1
-- `react-toastify`: ^10.0.5
+Usage
+<!-- --------- -->
 
-### Backend
+Upload Images: Users can upload images either by clicking "Choose Files" or by dragging and dropping files into the designated area.
+Compression and Validation: The images are compressed and validated based on size and resolution constraints.
+API Integration: The images are uploaded to the server, and their processing status can be tracked through API calls.
 
-- `aws-sdk`: ^2.1625.0
-- `axios`: ^1.7.2
-- `cors`: ^2.8.5
-- `dotenv`: ^16.4.5
-- `express`: ^4.19.2
-- `sharp`: ^0.33.4
 
-## Usage
+Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-- To upload images, click "Choose Files" or drag and drop files into the specified area.
-- Selected files will be validated and compressed before upload.
-- The server handles the upload process and communicates with the remote API for staging, processing, and status checking.
-
-## License
-
+License
 This project is licensed under the ISC License.
