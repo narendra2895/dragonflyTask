@@ -17,6 +17,7 @@ const ImageUploader = () => {
   const MAX_WIDTH = 3000; // Maximum allowed width: 3000px
   const MAX_HEIGHT = 2000; // Maximum allowed height: 2000px
 
+
   // Handle file input change event
   const handleFileChange = async (e) => {
     const selectedFiles = Array.from(e.target.files).filter(file => file.type.startsWith('image/'));
@@ -31,6 +32,7 @@ const ImageUploader = () => {
       });
     } else {
       handleFiles(selectedFiles);
+      console.log(responses)
     }
   };
 
